@@ -1,0 +1,105 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>My dictionary</title>
+        <link rel="stylesheet" href="css/style.css" />
+    </head>
+
+    <body>
+        <div class="container">
+            <main class="main">
+                <nav class="mobile-nav">
+                    <div class="mobile-nav-head">
+                        <a href="/" class="mobile-logo"
+                            ><span class="mobile-logo__subtext">My</span>Dictionary</a
+                        >
+                        <div class="menu-burger" data-action="showMenu"><span></span></div>
+                    </div>
+                    <div class="mobile-nav-body" data-action="mobileMenu">
+                        <ul class="mobile-nav__list">
+                            <li class="mobile-nav__list--item">
+                                <a
+                                    href="#"
+                                    class="mobile-nav__list--link active"
+                                    data-action="addLink"
+                                    >Add word</a
+                                >
+                            </li>
+                            <li class="mobile-nav__list--item">
+                                <a href="#" class="mobile-nav__list--link" data-action="searchLink"
+                                    >Search word</a
+                                >
+                            </li>
+                            <li class="mobile-nav__list--item">
+                                <a
+                                    href="#"
+                                    class="mobile-nav__list--link"
+                                    data-action="dictionaryLink"
+                                    >Visit dictionary</a
+                                >
+                            </li>
+                        </ul>
+                    </div>
+                </nav>
+                <nav class="nav">
+                    <a href="/" class="logo"><span class="logo__subtext">My</span>Dictionary</a>
+                    <ul class="nav__list">
+                        <li class="nav__list--item">
+                            <a
+                                href="#add"
+                                id="add"
+                                class="nav__list--link active"
+                                data-action="addLink"
+                                >Add word</a
+                            >
+                        </li>
+                        <li class="nav__list--item">
+                            <a href="#" class="nav__list--link" data-action="searchLink"
+                                >Search word</a
+                            >
+                        </li>
+                        <li class="nav__list--item">
+                            <a href="#" class="nav__list--link" data-action="dictionaryLink"
+                                >Visit dictionary</a
+                            >
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="content" data-action="content">
+                    <form class="form">
+                        <h1 class="form__title _title">Add new word!</h1>
+                        <div class="input-field">
+                            <input
+                                type="text"
+                                class="form__input"
+                                placeholder="Word"
+                                data-action="wordInput"
+                            />
+                        </div>
+                        <div class="input-field">
+                            <input
+                                type="text"
+                                class="form__input"
+                                placeholder="Translation"
+                                data-action="translationInput"
+                            />
+                        </div>
+                        <button type="submit" class="form__btn btn" data-action="addButton">
+                            Add word
+                        </button>
+                    </form>
+                </div>
+            </main>
+        </div>
+        <div class="modal-wrapper" data-action="modal"></div>
+        <div class="popup-wrapper" data-action="popup"></div>
+
+        <script defer src="js/app.js" type="module"></script>
+        <script defer src="js/variables.js" type="module"></script>
+        <script defer src="js/EventClick.js" type="module"></script>
+    </body>
+</html>
