@@ -1,0 +1,52 @@
+.nav {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    font: var(--font-title-lg);
+}
+
+.logo span {
+    color: var(--color-1);
+    font: var(--font-title-lg);
+}
+
+.menu {
+    display: flex;
+    margin-top: 3vh;
+}
+
+.menu__item {
+    margin-right: 20px;
+}
+
+.menu__item:last-child {
+    margin-right: 0;
+}
+
+.menu__item--link {
+    border-bottom: var(--border-width) solid transparent;
+
+    color: var(--color-5);
+    transition: all 0.2s ease-in-out;
+}
+
+.menu__item--link.active {
+    border-bottom: var(--border-width) solid var(--color-2);
+
+    color: var(--color-2);
+}
+
+.menu__item--link:hover {
+    border-bottom: var(--border-width) solid var(--color-2);
+
+    color: var(--color-2);
+}
+
+.menu__item--link:focus {
+    border-bottom: var(--border-width) solid var(--color-2);
+
+    color: var(--color-2);
+}

@@ -1,0 +1,53 @@
+.table {
+    width: 100%;
+    text-align: center;
+}
+
+.thead {
+    background-color: var(--color-1);
+}
+
+.theading {
+    padding: 5px;
+
+    color: white;
+    font-weight: 700;
+}
+
+.trow *:first-child {
+    width: 0;
+}
+
+.trow *:last-child {
+    width: 10%;
+    white-space: nowrap;
+
+    font: var(--font-text-xs);
+}
+
+.tbody .trow {
+    opacity: 0.8;
+
+    transition: all 0.1s ease-in-out;
+    background-color: var(--color-2);
+}
+
+.tbody .trow:hover {
+    opacity: 1;
+}
+
+.tdata {
+    padding: 5px;
+
+    color: white;
+}
+
+.tfoot {
+    text-align: right;
+    background-color: var(--color-4);
+}
+
+.tfoot .theading span {
+    font: inherit;
+    color: white;
+}

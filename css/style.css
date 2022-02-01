@@ -1,0 +1,66 @@
+:root {
+    --font-title-lg: 900 45px/1.5 sans-serif;
+    --font-title-md: 800 40px/1.4 sans-serif;
+    --font-title-xs: 700 35px/1.3 sans-serif;
+
+    --font-text-lg: 500 30px/1.2 sans-serif;
+    --font-text-md: 400 25px/1.1 sans-serif;
+    --font-text-xs: 300 20px/1 sans-serif;
+
+    --color-1: coral;
+    --color-2: cornflowerblue;
+    --colol-3: brown;
+    --color-4: steelblue;
+    --color-5: slategrey;
+
+    --border-width: 3px;
+}
+
+.container {
+    margin: 0 auto;
+    padding: 5px 10px;
+    max-width: 1024px;
+}
+
+.title {
+    color: var(--color-2);
+    font: var(--font-title-md);
+}
+
+.btn {
+    padding: 5px 80px;
+    border: var(--border-width) solid var(--color-5);
+
+    color: var(--color-5);
+    transition: all 0.2s ease-in-out;
+}
+
+.btn:hover {
+    border: var(--border-width) solid var(--color-2);
+
+    color: white;
+    background-color: var(--color-2);
+}
+
+.btn:focus {
+    border: var(--border-width) solid var(--color-2);
+
+    color: white;
+    background-color: var(--color-2);
+}
+
+.add,
+.search,
+.dictionary,
+.modal,
+.popup {
+    display: none;
+}
+
+.add.active,
+.search.active,
+.dictionary.active,
+.modal.active,
+.popup.active {
+    display: block;
+}
