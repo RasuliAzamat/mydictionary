@@ -10,16 +10,7 @@ export class Dictionary {
                         <td class="theading">Add date</td>
                     </tr>
                 </thead>
-                <tbody class="tbody">${
-                    localStorage.length === 0 ? `
-                        <tr class="trow">
-                            <td class="theading">0</td>
-                            <td class="tdata">(empty)</td>
-                            <td class="tdata">(empty)</td>
-                            <td class="tdata">(empty)</td>
-                        </tr>
-                    ` : ''
-                }</tbody>
+                <tbody class="tbody"></tbody>
                 <tfoot class="tfoot">
                     <tr class="trow">
                         <td class="theading" colspan="100%">Итого: <span>${

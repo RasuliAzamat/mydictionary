@@ -1,10 +1,12 @@
 @import url('./css/style.css');
+
 @import url('./Components/Add/Add.css');
 @import url('./Components/Dictionary/Dictionary.css');
 @import url('./Components/Header/Header.css');
+@import url('./Components/Search/Search.css');
+
 @import url('./Components/Modal/Modal.css');
 @import url('./Components/Popup/Ppopup.css');
-@import url('./Components/Search/Search.css');
 
 *,
 *::before,
@@ -36,5 +38,3 @@ button {
 section {
     margin-top: 100px;
 }
-
-

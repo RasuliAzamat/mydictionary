@@ -1,5 +1,7 @@
 .table {
     width: 100%;
+
+    overflow: scroll;
     text-align: center;
 }
 
@@ -22,7 +24,7 @@
     width: 10%;
     white-space: nowrap;
 
-    font: var(--font-text-xs);
+    font: var(--font-subtext);
 }
 
 .tbody .trow {
@@ -36,18 +38,28 @@
     opacity: 1;
 }
 
-.tdata {
-    padding: 5px;
-
-    color: white;
-}
-
 .tfoot {
     text-align: right;
     background-color: var(--color-4);
 }
 
 .tfoot .theading span {
-    font: inherit;
+    font: var(--font-text-md);
     color: white;
+}
+
+.thead .theading {
+    padding: 10px;
+}
+
+.tbody .tdata {
+    padding: 0px 5px;
+
+    color: white;
+}
+
+.tfoot .theading {
+    padding: 10px;
+
+    font: var(--font-text-md);
 }
