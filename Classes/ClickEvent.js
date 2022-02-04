@@ -27,8 +27,12 @@ export class ClickEvent extends EventMethods {
             case 'addButton':
                 let word, translation;
                 for (const input of this.inputs) {
-                    if (input.dataset.name === 'wordInput') word = input.value;
-                    if (input.dataset.name === 'translationInput') translation = input.value;
+                    if (input.dataset.name === 'wordInput') {
+                        word = input.value;
+                    }
+                    if (input.dataset.name === 'translationInput') {
+                        translation = input.value;
+                    }
                 }
 
                 try {
@@ -38,39 +42,66 @@ export class ClickEvent extends EventMethods {
                         throw new StorageError();
                     } else {
                         this.addToStorage(word, translation);
-                        alert('Успешно добавлено!');
+                        this.showPopup(
+                            'Успешно добавлено',
+                            `В ваш словарь были добавлены следующие значения: 
+                            ${word} - ${translation}`
+                        );
                     }
                 } catch (error) {
-                    alert(`${error.name}: ${error.message}`);
+                    this.showPopup(`${error.name}`, `${error.message}`);
                 } finally {
-                    location.href = '/';
+                    setTimeout(() => {
+                        this.closePopup();
+                        location.href = '/';
+                    }, 3000);
                 }
                 break;
 
             case 'searchButton':
                 let search;
                 for (const input of this.inputs) {
-                    if (input.dataset.name === 'searchInput') search = input.value;
+                    if (input.dataset.name === 'searchInput') {
+                        search = input.value;
+                    }
                 }
 
                 try {
                     for (const item of Object.keys(localStorage)) {
-                        if (item === this.formatValue(search)) {
-                            alert(`Слово: ${item} \nПеревод: ${
-                                JSON.parse(localStorage.getItem(item)).translation
-                            } \nДата добавления: ${this.makeFullDate(
-                                new Date(JSON.parse(localStorage.getItem(item)).addDate)
-                            )}
-                            `);
+                        if (!this.checkValidity(search)) {
+                            throw new ValidityError();
+                        } else if (item === this.formatValue(search)) {
+                            this.showModal(
+                                'In your dictionary',
+                                item,
+                                JSON.parse(localStorage.getItem(item)).translation,
+                                this.makeFullDate(
+                                    new Date(JSON.parse(localStorage.getItem(item)).addDate)
+                                )
+                            );
                         } else {
                             throw new SearchError();
                         }
                     }
                 } catch (error) {
-                    alert(`${error.name}: ${error.message}`);
+                    this.showPopup(`${error.name}`, `${error.message}`);
                 } finally {
-                    location.href = '/';
+                    setTimeout(() => {
+                        this.closePopup();
+                        location.href = '/';
+                    }, 3000);
                 }
+                break;
+
+            case 'closePopupButton':
+                this.closePopup();
+                location.href = '/';
+                break;
+
+            case 'closeModalButton':
+                this.closeModal();
+                location.href = '/';
+
                 break;
 
             default:

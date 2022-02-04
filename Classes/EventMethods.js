@@ -1,7 +1,12 @@
+import { Modal } from '../Components/Modal/Modal.js';
+import { Popup } from '../Components/Popup/Popup.js';
+
 export class EventMethods {
     constructor() {
-        this.container = document.querySelector('#container');
+        this.container = document.querySelector('.container');
         this.tableBody = document.querySelector('.tbody');
+        this.popup = document.querySelector('.popup');
+        this.modal = document.querySelector('.modal');
         this.links = document.querySelectorAll('[href*="#"]');
         this.inputs = document.querySelectorAll('[data-name*="Input"]');
     }
@@ -40,7 +45,7 @@ export class EventMethods {
         if (localStorage.getItem(key) === null) return true;
     }
 
-    addToStorage(word, translation, date) {
+    addToStorage(word, translation) {
         if (this.checkStrorage(word)) {
             localStorage.setItem(
                 this.formatValue(word),
@@ -54,17 +59,45 @@ export class EventMethods {
 
     makeShortDate(date) {
         return `${date.getFullYear()}-${
-            date.getMonth() < 10 ? '0' + date.getMonth() : date.getMonth()
-        }-${date.getDay() < 10 ? '0' + date.getDay() : date.getDay()}`;
+            date.getMonth() < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1
+        }-${date.getDay() < 10 ? '0' + (date.getDay() - 1) : date.getDay() - 1}`;
     }
 
     makeFullDate(date) {
         return `${date.getFullYear()}-${
-            date.getMonth() < 10 ? '0' + date.getMonth() : date.getMonth()
-        }-${date.getDay() < 10 ? '0' + date.getDay() : date.getDay()} ${
+            date.getMonth() < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1
+        }-${date.getDay() < 10 ? '0' + (date.getDay() - 1) : date.getDay() - 1} ${
             date.getHours() < 10 ? '0' + date.getHours() : date.getHours()
         }:${date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()}:${
             date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds()
         }`;
+    }
+
+    showPopup(title, text) {
+        document.body.classList.add('block');
+
+        this.popup.innerHTML = new Popup(title, text).render();
+        this.popup.classList.add('active');
+    }
+
+    closePopup() {
+        document.body.classList.remove('block');
+
+        this.popup.innerHTML = '';
+        this.popup.classList.remove('active');
+    }
+
+    showModal(title, word, translation, addDate) {
+        document.body.classList.add('block');
+
+        this.modal.innerHTML = new Modal(title, word, translation, addDate).render();
+        this.modal.classList.add('active');
+    }
+
+    closeModal() {
+        document.body.classList.remove('block');
+
+        this.modal.innerHTML = '';
+        this.modal.classList.remove('active');
     }
 }

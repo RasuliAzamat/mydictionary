@@ -3,9 +3,6 @@ import { Dictionary } from './Components/Dictionary/Dictionary.js';
 import { Header } from './Components/Header/Header.js';
 import { Search } from './Components/Search/Search.js';
 
-import {} from './Components/Modal/Modal.js';
-import {} from './Components/Popup/Popup.js';
-
 import { ClickEvent } from './Classes/ClickEvent.js';
 import { EventMethods } from './Classes/EventMethods.js';
 
@@ -14,8 +11,6 @@ document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#add').innerHTML = new Add().render();
     document.querySelector('#search').innerHTML = new Search().render();
     document.querySelector('#dictionary').innerHTML = new Dictionary().render();
-
-    const tableBody = document.querySelector('.tbody');
 
     let counter = 0;
     for (const item of Object.keys(localStorage)) {
@@ -33,6 +28,6 @@ document.addEventListener('DOMContentLoaded', () => {
             `
         );
     }
-    
+
     document.addEventListener('click', new ClickEvent());
 });
