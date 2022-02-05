@@ -5,18 +5,33 @@ export class ClickEvent extends EventMethods {
     onClick(event) {
         const target = event.target;
 
+        switch (target.href) {
+            case `${location.origin + '/'}`:
+                location.href = location.origin;
+                break;
+
+            default:
+                break;
+        }
+
         switch (target.hash) {
             case '#add':
                 this.changeActiveLink('#add');
                 this.changeActiveView('add');
+
+                this.menu.classList.toggle('active');
                 break;
             case '#search':
                 this.changeActiveLink('#search');
                 this.changeActiveView('search');
+
+                this.menu.classList.toggle('active');
                 break;
             case '#dictionary':
                 this.changeActiveLink('#dictionary');
                 this.changeActiveView('dictionary');
+
+                this.menu.classList.toggle('active');
                 break;
 
             default:
@@ -36,7 +51,12 @@ export class ClickEvent extends EventMethods {
                 }
 
                 try {
-                    if (!this.checkValidity(word) || !this.checkValidity(translation)) {
+                    if (
+                        !(
+                            this.checkValidity(word) &&
+                            this.checkValidity(translation)
+                        )
+                    ) {
                         throw new ValidityError();
                     } else if (!this.checkStrorage(word)) {
                         throw new StorageError();
@@ -45,7 +65,9 @@ export class ClickEvent extends EventMethods {
                         this.showPopup(
                             'Успешно добавлено',
                             `В ваш словарь были добавлены следующие значения: 
-                            ${word} - ${translation}`
+                            ${this.formatValue(word)} - ${this.formatValue(
+                                translation
+                            )}`
                         );
                     }
                 } catch (error) {
@@ -53,8 +75,8 @@ export class ClickEvent extends EventMethods {
                 } finally {
                     setTimeout(() => {
                         this.closePopup();
-                        location.href = '/';
-                    }, 3000);
+                        location.href = location.origin;
+                    }, 5000);
                 }
                 break;
 
@@ -74,9 +96,14 @@ export class ClickEvent extends EventMethods {
                             this.showModal(
                                 'In your dictionary',
                                 item,
-                                JSON.parse(localStorage.getItem(item)).translation,
+                                JSON.parse(localStorage.getItem(item))
+                                    .translation,
                                 this.makeFullDate(
-                                    new Date(JSON.parse(localStorage.getItem(item)).addDate)
+                                    new Date(
+                                        JSON.parse(
+                                            localStorage.getItem(item)
+                                        ).addDate
+                                    )
                                 )
                             );
                         } else {
@@ -88,20 +115,36 @@ export class ClickEvent extends EventMethods {
                 } finally {
                     setTimeout(() => {
                         this.closePopup();
-                        location.href = '/';
-                    }, 3000);
+                        location.href = location.origin;
+                    }, 5000);
                 }
                 break;
 
             case 'closePopupButton':
                 this.closePopup();
-                location.href = '/';
+                location.href = location.origin;
                 break;
 
             case 'closeModalButton':
                 this.closeModal();
-                location.href = '/';
+                location.href = location.origin;
+                break;
 
+            case 'showMenuButton':
+                this.menu.classList.toggle('active');
+                break;
+
+            case 'deleteRowButton':
+                let trow = target.closest('.trow');
+
+                for (const element of trow.children) {
+                    if (element.dataset.name === 'word') {
+                        localStorage.removeItem(element.textContent);
+                        this.count.textContent = localStorage.length;
+                    }
+                }
+
+                trow.remove();
                 break;
 
             default:

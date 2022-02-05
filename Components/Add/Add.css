@@ -24,6 +24,7 @@
 
 .form__input::placeholder {
     color: var(--color-5);
+    transition: all 0.2s ease-in-out;
 }
 
 .form__input:focus {
@@ -32,4 +33,31 @@
 
 .form__input:focus::placeholder {
     color: var(--color-2);
+}
+
+@media (max-width: 999px) {
+    .input-field {
+        width: 500px;
+        height: 90px;
+    }
+}
+
+@media (max-width: 888px) {
+    .input-field {
+        width: 400px;
+        height: 70px;
+    }
+    .input-field:last-of-type {
+        margin-bottom: 40px;
+    }
+
+    .form__input {
+        padding: 30px 10px 0px 5px;
+    }
+}
+
+@media (max-width: 425px) {
+    .input-field {
+        width: 100%;
+    }
 }

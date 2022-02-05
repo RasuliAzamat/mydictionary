@@ -20,11 +20,44 @@
     width: 0;
 }
 
-.trow *:last-child {
-    width: 10%;
+.theading.small,
+.tdata.small {
+    width: 0;
     white-space: nowrap;
 
-    font: var(--font-subtext);
+    font: var(--font-subtext-md);
+}
+
+.theading.small:last-child,
+.tdata.small:last-child {
+    width: 0;
+}
+
+.tdata.small:last-child {
+    position: relative;
+}
+
+.tdata.small:last-child::before,
+.tdata.small:last-child::after {
+    content: '';
+
+    position: absolute;
+    top: 15px;
+    left: 20px;
+
+    width: 20px;
+    height: 3px;
+
+    cursor: pointer;
+    background-color: white;
+}
+
+.tdata.small:last-child::before {
+    transform: rotate(45deg);
+}
+
+.tdata.small:last-child::after {
+    transform: rotate(-45deg);
 }
 
 .tbody .trow {
@@ -62,4 +95,64 @@
     padding: 10px;
 
     font: var(--font-text-md);
+}
+
+@media (max-width: 999px) {
+    .thead .theading {
+        padding: 7px;
+    }
+
+    .tbody .tdata {
+        padding: 0px 3px;
+    }
+
+    .tfoot .theading {
+        padding: 7px;
+    }
+
+    .tdata.small:last-child::before,
+    .tdata.small:last-child::after {
+        top: 15px;
+    }
+}
+
+@media (max-width: 888px) {
+    .thead .theading {
+        padding: 5px;
+    }
+
+    .tfoot .theading {
+        padding: 5px;
+        font: var(--font-text-xs);
+    }
+
+    .tfoot .theading span {
+        font: var(--font-text-xs);
+    }
+
+    .tdata.small:last-child::before,
+    .tdata.small:last-child::after {
+        top: 15px;
+        left: 15px;
+
+        height: 2px;
+    }
+}
+@media (max-width: 768px) {
+    .trow .small {
+        font: var(--font-subtext-xs);
+    }
+
+    .tfoot .theading,
+    .tfoot .theading span {
+        font: var(--font-text-xs);
+    }
+
+    .tdata.small:last-child::before,
+    .tdata.small:last-child::after {
+        left: 12px;
+
+        width: 15px;
+        height: 1.5px;
+    }
 }

@@ -30,13 +30,36 @@
 }
 
 .modal-close {
+    position: relative;
+
     width: 30px;
     height: 30px;
     margin-left: auto;
 
     cursor: pointer;
+}
+
+.modal-close::before,
+.modal-close::after {
+    content: '';
+    position: absolute;
+    left: 0;
+
+    width: 100%;
+    height: var(--border-width);
+    border-radius: 10px;
 
     background-color: white;
+}
+
+.modal-close::before {
+    transform: rotate(45deg) translate(6px, 6px);
+    top: 4px;
+}
+
+.modal-close::after {
+    transform: rotate(-45deg) translate(7px, -7px);
+    bottom: 4px;
 }
 
 .modal-info * {
@@ -60,67 +83,40 @@
     font: var(--font-text-lg);
 }
 
-*,
-*::before,
-*::after {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
+@media (max-width: 768px) {
+    .modal-inner {
+        padding: 25px;
+    }
+
+    .modal-info__title {
+        margin-bottom: 10px;
+        font: var(--font-title-xs);
+    }
+
+    .modal-info__word,
+    .modal-info__translation,
+    .modal-info__date {
+        margin-bottom: 3px;
+
+        font: var(--font-text-xs);
+    }
+
+    .modal-info__word span,
+    .modal-info__translation span,
+    .modal-info__date span {
+        font: var(--font-text-md);
+    }
 }
 
-body {
-    font-family: sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    overflow: hidden;
-}
+@media (max-width: 555px) {
+    .modal-inner {
+        padding: 20px;
+    }
 
-#elem {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    transform: translateY(300px);
+    .modal-info__title {
+        margin-bottom: 7px;
 
-    width: 80%;
-    height: 100px;
-    margin: auto;
-    border-radius: 10px;
-
-    overflow: hidden;
-    opacity: 0;
-
-    background: coral;
-    transition: transform 1.3s cubic-bezier(0.7, -0.6, 0.3, 1.6),
-        opacity 1.3s cubic-bezier(0.7, -0.6, 0.3, 1.6), box-shadow 0.4s ease-in-out 1.35s;
-}
-
-#elem span {
-    transform: translateY(100px);
-
-    opacity: 1;
-
-    color: cornsilk;
-    font: 400 28px/1.5 sans-serif;
-    letter-spacing: 3px;
-    transition: all 0.4s ease-in-out 1.8s;
-}
-
-#elem.click {
-    transform: translateY(0px);
-
-    opacity: 1;
-
-    box-shadow: 10px 10px 15px cornflowerblue;
-}
-
-#elem.click span {
-    transform: translateY(0px);
-
-    opacity: 1;
-}
-
-#button {
-    margin: 2rem 0 2rem 2rem;
-
-    font-size: 5rem;
+        font: var(--font-text-lg);
+        font-weight: 600;
+    }
 }

@@ -7,8 +7,10 @@ export class EventMethods {
         this.tableBody = document.querySelector('.tbody');
         this.popup = document.querySelector('.popup');
         this.modal = document.querySelector('.modal');
+        this.menu = document.querySelector('.mobile-nav');
         this.links = document.querySelectorAll('[href*="#"]');
         this.inputs = document.querySelectorAll('[data-name*="Input"]');
+        this.count = document.querySelector('[data-name="countPlace"]');
     }
 
     handleEvent(event) {
@@ -38,7 +40,9 @@ export class EventMethods {
     }
 
     formatValue(value) {
-        return (value[0].toUpperCase() + value.slice(1).toLowerCase()).trim();
+        return (
+            value.trim()[0].toUpperCase() + value.trim().slice(1).toLowerCase()
+        ).trim();
     }
 
     checkStrorage(key) {
@@ -59,16 +63,24 @@ export class EventMethods {
 
     makeShortDate(date) {
         return `${date.getFullYear()}-${
-            date.getMonth() < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1
-        }-${date.getDay() < 10 ? '0' + (date.getDay() - 1) : date.getDay() - 1}`;
+            date.getMonth() < 10
+                ? '0' + (date.getMonth() + 1)
+                : date.getMonth() + 1
+        }-${
+            date.getDay() < 10 ? '0' + (date.getDay() - 1) : date.getDay() - 1
+        }`;
     }
 
     makeFullDate(date) {
         return `${date.getFullYear()}-${
-            date.getMonth() < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1
-        }-${date.getDay() < 10 ? '0' + (date.getDay() - 1) : date.getDay() - 1} ${
-            date.getHours() < 10 ? '0' + date.getHours() : date.getHours()
-        }:${date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()}:${
+            date.getMonth() < 10
+                ? '0' + (date.getMonth() + 1)
+                : date.getMonth() + 1
+        }-${
+            date.getDay() < 10 ? '0' + (date.getDay() - 1) : date.getDay() - 1
+        } ${date.getHours() < 10 ? '0' + date.getHours() : date.getHours()}:${
+            date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()
+        }:${
             date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds()
         }`;
     }
@@ -90,7 +102,12 @@ export class EventMethods {
     showModal(title, word, translation, addDate) {
         document.body.classList.add('block');
 
-        this.modal.innerHTML = new Modal(title, word, translation, addDate).render();
+        this.modal.innerHTML = new Modal(
+            title,
+            word,
+            translation,
+            addDate
+        ).render();
         this.modal.classList.add('active');
     }
 

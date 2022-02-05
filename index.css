@@ -43,3 +43,27 @@ body.block {
     overflow: hidden;
     pointer-events: none;
 }
+
+@media (max-width: 888px) {
+    *,
+    *::before,
+    *::after {
+        font: var(--font-text-xs);
+    }
+
+    section {
+        margin-top: 80px;
+    }
+}
+
+@media (max-width: 888px) {
+    section {
+        margin-top: 70px;
+    }
+}
+
+@media (max-width: 768px) {
+    section {
+        margin-top: 60px;
+    }
+}

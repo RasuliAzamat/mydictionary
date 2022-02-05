@@ -19,11 +19,14 @@ document.addEventListener('DOMContentLoaded', () => {
             `
                 <tr class="trow">
                     <td class="theading">${++counter}</td>
-                    <td class="tdata">${item}</td>
-                    <td class="tdata">${JSON.parse(localStorage.getItem(item)).translation}</td>
-                    <td class="tdata">${new EventMethods().makeShortDate(
+                    <td class="tdata" data-name="word">${item}</td>
+                    <td class="tdata" data-name="translation">${
+                        JSON.parse(localStorage.getItem(item)).translation
+                    }</td>
+                    <td class="tdata small" data-name="date">${new EventMethods().makeShortDate(
                         new Date(JSON.parse(localStorage.getItem(item)).addDate)
                     )}</td>
+                    <td class="tdata small" data-name="deleteRowButton"></td>
                 </tr>
             `
         );

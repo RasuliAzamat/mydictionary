@@ -7,7 +7,8 @@
     --font-text-md: 400 25px/1.1 sans-serif;
     --font-text-xs: 300 20px/1 sans-serif;
 
-    --font-subtext: 100 15px/1 sans-serif;
+    --font-subtext-md: 100 15px/1 sans-serif;
+    --font-subtext-xs: 100 10px/1 sans-serif;
 
     --color-1: coral;
     --color-2: cornflowerblue;
@@ -61,4 +62,31 @@
 .search.active,
 .dictionary.active {
     display: block;
+}
+
+@media (max-width: 888px) {
+    *,
+    *::before,
+    *::after {
+        font: var(--font-text-xs);
+    }
+
+    .title {
+        font: var(--font-title-xs);
+    }
+
+    .btn {
+        padding: 5px 60px;
+    }
+}
+
+@media (max-width: 768px) {
+    .title {
+        font: var(--font-text-lg);
+        font-weight: 600;
+    }
+
+    .btn {
+        padding: 5px 50px;
+    }
 }
