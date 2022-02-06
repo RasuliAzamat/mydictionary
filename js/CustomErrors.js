@@ -10,7 +10,15 @@ export class StorageError extends Error {
     constructor() {
         super();
         this.name = 'Ошибка хранилища!';
-        this.message = `Вы уже добавили это слово в словарь. <br /> Добавьте что-то новое!`;
+        this.message = `Вы уже добавили это слово в словарь. <br /> Добавьте новое слово!`;
+    }
+}
+
+export class EmptyStorageError extends Error {
+    constructor() {
+        super();
+        this.name = 'Ошибка хранилища!';
+        this.message = `В вашем хранилище пусто. <br /> Добавьте первое слово!`;
     }
 }
 

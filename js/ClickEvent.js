@@ -1,5 +1,5 @@
 import { EventMethods } from './EventMethods.js';
-import { ValidityError, StorageError, SearchError } from './CustomErrors.js';
+import { ValidityError, StorageError, SearchError, EmptyStorageError } from './CustomErrors.js';
 
 export class ClickEvent extends EventMethods {
     onClick(event) {
@@ -76,6 +76,8 @@ export class ClickEvent extends EventMethods {
                 }
 
                 try {
+                    if (localStorage.length <= 0) throw new EmptyStorageError();
+
                     for (const item of Object.keys(localStorage)) {
 
                         if (!this.checkValidity(search)) {
