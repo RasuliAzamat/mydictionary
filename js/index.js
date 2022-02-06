@@ -1,10 +1,10 @@
-import { Add } from './Components/Add/Add.js';
-import { Dictionary } from './Components/Dictionary/Dictionary.js';
-import { Header } from './Components/Header/Header.js';
-import { Search } from './Components/Search/Search.js';
+import { Add } from '../Components/Add/Add.js';
+import { Dictionary } from '../Components/Dictionary/Dictionary.js';
+import { Header } from '../Components/Header/Header.js';
+import { Search } from '../Components/Search/Search.js';
 
-import { ClickEvent } from './Classes/ClickEvent.js';
-import { EventMethods } from './Classes/EventMethods.js';
+import { ClickEvent } from './ClickEvent.js';
+import { EventMethods } from './EventMethods.js';
 
 document.addEventListener('DOMContentLoaded', () => {
     document.querySelector('#header').innerHTML = new Header().render();
@@ -18,7 +18,7 @@ document.addEventListener('DOMContentLoaded', () => {
             'beforeend',
             `
                 <tr class="trow">
-                    <td class="theading">${++counter}</td>
+                    <td class="theading" data-name="count">${++counter}</td>
                     <td class="tdata" data-name="word">${item}</td>
                     <td class="tdata" data-name="translation">${
                         JSON.parse(localStorage.getItem(item)).translation

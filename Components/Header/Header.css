@@ -72,7 +72,7 @@
         align-items: center;
         justify-content: space-between;
 
-        height: 70px;
+        height: 60px;
     }
 
     .mobile-logo {
@@ -91,7 +91,7 @@
 
         width: 30px;
         height: 30px;
-        margin-top: 5px;
+        margin-top: 1vh;
 
         cursor: pointer;
         overflow: hidden;
@@ -152,7 +152,7 @@
         transform: translateX(100%);
 
         position: fixed;
-        top: 70px;
+        top: 60px;
         left: 0;
         right: 0;
         bottom: 0;

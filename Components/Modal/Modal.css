@@ -110,6 +110,9 @@
 
 @media (max-width: 555px) {
     .modal-inner {
+        width: 90vw;
+        height: 90vh;
+        margin: 5vh auto;
         padding: 20px;
     }
 

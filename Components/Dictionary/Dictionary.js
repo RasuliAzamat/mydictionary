@@ -3,33 +3,39 @@ export class Dictionary {
         return `
             <table class="table">
                 <thead class="thead">
+
                     <tr class="trow">
                         <td class="theading">№</td>
-                        <td class="theading">Word</td>
-                        <td class="theading">Translation</td>
-                        <td class="theading small">Add date</td>
-                        <td class="theading small">Delete</td>
+                        <td class="theading">Слово</td>
+                        <td class="theading">Перевод</td>
+                        <td class="theading small">Добавлено</td>
+                        <td class="theading small">Удалить</td>
                     </tr>
+
                 </thead>
                 <tbody class="tbody">${
                     localStorage.length <= 0
                         ? `
                         <tr class="trow">
                             <td class="theading">0</td>
-                            <td class="tdata" data-name="word">(empty)</td>
-                            <td class="tdata" data-name="translation">(empty)</td>
-                            <td class="tdata small" data-name="date">(empty)</td>
+                            <td class="tdata" data-name="word">(пусто)</td>
+                            <td class="tdata" data-name="translation">(пусто)</td>
+                            <td class="tdata small" data-name="date">(пусто)</td>
                             <td class="tdata small hide" data-name="deleteRowButton"></td>
                         </tr>
                     `
                         : ''
                 }</tbody>
                 <tfoot class="tfoot">
+
                     <tr class="trow">
-                        <td class="theading" colspan="100%">Итого: <span data-name="countPlace">${
-                            localStorage.length
-                        }</span></td>
+                        <td class="theading" colspan="100%">
+                            Итого: <span data-name="countPlace">${
+                                localStorage.length
+                            }</span>
+                        </td>
                     </tr>
+                    
                 </tfoot>
             </table>
         `;

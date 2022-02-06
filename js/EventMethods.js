@@ -8,9 +8,11 @@ export class EventMethods {
         this.popup = document.querySelector('.popup');
         this.modal = document.querySelector('.modal');
         this.menu = document.querySelector('.mobile-nav');
+
         this.links = document.querySelectorAll('[href*="#"]');
         this.inputs = document.querySelectorAll('[data-name*="Input"]');
-        this.count = document.querySelector('[data-name="countPlace"]');
+        this.serialNumbers = document.querySelectorAll('[data-name="count"]');
+        this.countPlace = document.querySelector('[data-name="countPlace"]');
     }
 
     handleEvent(event) {
@@ -63,22 +65,20 @@ export class EventMethods {
 
     makeShortDate(date) {
         return `${date.getFullYear()}-${
-            date.getMonth() < 10
-                ? '0' + (date.getMonth() + 1)
-                : date.getMonth() + 1
+            date.getMonth() < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1
         }-${
-            date.getDay() < 10 ? '0' + (date.getDay() - 1) : date.getDay() - 1
+            date.getDate() < 10 ? '0' + date.getDate() : date.getDate()
         }`;
     }
 
     makeFullDate(date) {
         return `${date.getFullYear()}-${
-            date.getMonth() < 10
-                ? '0' + (date.getMonth() + 1)
-                : date.getMonth() + 1
+            date.getMonth() < 10 ? '0' + (date.getMonth() + 1) : date.getMonth() + 1
         }-${
-            date.getDay() < 10 ? '0' + (date.getDay() - 1) : date.getDay() - 1
-        } ${date.getHours() < 10 ? '0' + date.getHours() : date.getHours()}:${
+            date.getDate() < 10 ? '0' + date.getDate() : date.getDate()
+        } ${
+            date.getHours() < 10 ? '0' + date.getHours() : date.getHours()
+        }:${
             date.getMinutes() < 10 ? '0' + date.getMinutes() : date.getMinutes()
         }:${
             date.getSeconds() < 10 ? '0' + date.getSeconds() : date.getSeconds()
@@ -102,12 +102,7 @@ export class EventMethods {
     showModal(title, word, translation, addDate) {
         document.body.classList.add('block');
 
-        this.modal.innerHTML = new Modal(
-            title,
-            word,
-            translation,
-            addDate
-        ).render();
+        this.modal.innerHTML = new Modal(title, word, translation, addDate).render();
         this.modal.classList.add('active');
     }
 
