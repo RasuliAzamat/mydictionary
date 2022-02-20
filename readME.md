@@ -3,7 +3,7 @@
 Приложение для самостоятельного изучения нового языка, путем изучения новых слов!
 Удобный интерфейс, простаая логика и полезная функциональность помогут вам в этом.
 
-[Просмотр (версия 1)](https://rasuliazamat.github.io/MyDictionary-app/)
+[Просмотр (версия 1)](https://rasuliazamat.github.io/MyDictionary--app/)
 
 <img src="https://i.ibb.co/zfCzgs7/2022-02-20-6.png" alt="2022-02-20-6" border="0">
 
