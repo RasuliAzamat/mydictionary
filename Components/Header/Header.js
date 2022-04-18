@@ -2,7 +2,9 @@ export class Header {
     render() {
         return `
             <nav class="nav">
-                <a href="${location.origin + location.pathname}" class="logo">My</a>
+                <a href="${
+                    location.origin + location.pathname
+                }" class="logo">My</a>
 
                 <ul class="menu">
                     <li class="menu__item">
@@ -26,7 +28,9 @@ export class Header {
             </nav>
 
             <nav class="mobile-nav">
-                <a href="${location.origin + location.pathname}" class="mobile-logo">My</a>
+                <a href="${
+                    location.origin + location.pathname
+                }" class="mobile-logo">My</a>
                 <div class="menu-burger" data-name="showMenuButton"><span></span></div>
                 <ul class="mobile-menu">
                     <li class="mobile-menu__item">
@@ -46,6 +50,6 @@ export class Header {
                     </li>
                 </ul>
             </nav>
-        `;
+        `
     }
 }

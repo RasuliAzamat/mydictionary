@@ -1,9 +1,9 @@
 export class Modal {
     constructor(title, word, translation, addDate) {
-        this.title = title;
-        this.word = word;
-        this.translation = translation;
-        this.addDate = addDate;
+        this.title = title
+        this.word = word
+        this.translation = translation
+        this.addDate = addDate
     }
 
     render() {
@@ -27,6 +27,6 @@ export class Modal {
                     </p>
                 </div>
             </div>
-        `;
+        `
     }
 }

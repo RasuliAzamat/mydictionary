@@ -1,7 +1,7 @@
 export class Popup {
     constructor(title, text) {
-        this.title = title;
-        this.text = text;
+        this.title = title
+        this.text = text
     }
     render() {
         return `
@@ -13,6 +13,6 @@ export class Popup {
                 <p class="popup-info__text">${this.text}</p>
             </div>
         </div>
-    `;
+    `
     }
 }
