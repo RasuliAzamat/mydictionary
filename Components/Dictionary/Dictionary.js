@@ -14,7 +14,7 @@ export class Dictionary {
 
                 </thead>
                 <tbody class="tbody">${
-                    JSON.parse(localStorage.getItem('words')).length <= 0
+                    (JSON.parse(localStorage.getItem('words')) || []).length <= 0
                         ? `
                         <tr class="trow">
                             <td class="theading">0</td>
@@ -31,7 +31,7 @@ export class Dictionary {
                     <tr class="trow">
                         <td class="theading" colspan="100%">
                             Итого: <span data-name="countPlace">${
-                                JSON.parse(localStorage.getItem('words')).length
+                                (JSON.parse(localStorage.getItem('words')) || []).length
                             }</span>
                         </td>
                     </tr>
